@@ -109,3 +109,23 @@ run on a file
 ```bash
 ./scadformat ./internal/formatter/testdata/solo_adapter.scad
 ```
+
+### Build webasm
+
+https://golangbot.com/webassembly-using-go/
+
+Go into the respository
+```bash
+cd scadformat
+```
+
+Generate ANTLR parser
+```bash
+go generate ./...
+```
+
+Build the executable
+```bash
+GOOS=js GOARCH=wasm go build -o ./assets/json.wasm cmd/main.go
+cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" ./assets/
+```

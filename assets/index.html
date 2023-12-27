@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>scadformat</title>
+    <meta charset="utf-8"/>
+    <script src="wasm_exec.js"></script>
+    <script>
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("json.wasm"), go.importObject).then((result) => {
+            go.run(result.instance);
+        });
+    </script>
+</head>
+<body>
+<h1>scadformat</h1>
+
+</body>
+</html>
